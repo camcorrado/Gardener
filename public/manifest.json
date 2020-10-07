@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Gardener App",
+  "name": "Gardener",
   "icons": [
     {
       "src": "favicon.ico",

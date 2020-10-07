@@ -1,0 +1,17 @@
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  padding: 1% 0;
+  background-color: white;
+  display: flex;
+  justify-content: space-evenly;
+  height: 50px;
+  border-bottom: 1px solid black;
+}
+
+a {
+  color: black;
+}

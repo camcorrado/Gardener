@@ -1,13 +1,93 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+* {
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+html,
+body {
+  background-attachment: fixed;
+  background-image: url(https://i.imgur.com/TWaD4xO.png),
+    linear-gradient(skyblue, green);
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  color: black;
+  font-family: "Abel", sans-serif;
+  font-size: 18px;
+  height: 100%;
+  width: 100%;
+  min-width: 320px;
+  padding: 0px 5px 5px 5px;
+}
+
+h1,
+h2 {
+  line-height: 100%;
+  margin: 2px;
+}
+
+h1 {
+  font-family: "Dancing Script", cursive;
+  font-size: 126px;
+  text-align: center;
+}
+
+h2 {
+  font-size: 52px;
+}
+
+h3 {
+  padding-top: 5px;
+  font-size: 26px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  margin-bottom: 5px;
+  width: 100%;
+}
+
+button,
+.button {
+  border-radius: 5px;
+  border: 1px solid #999;
+  background-color: white;
+  border-bottom: 3px solid #333;
+  font-size: 20px;
+  text-decoration: none;
+  color: black;
+  cursor: pointer;
+  transition: all 0.5s;
+  margin: 10px;
+  min-width: 80px;
+  height: 45px;
+  text-align: center;
+  padding: 0px 10px;
+}
+
+button.primary {
+  background-color: white;
+  border: 1px solid olive;
+  border-bottom: 3px solid darkolivegreen;
+  color: black;
+  min-width: 80px;
+  height: 45px;
+}
+
+button:hover,
+.button:hover {
+  border-bottom-width: 1px;
+  background-color: #333;
+  color: white;
+}
+
+button.primary:hover {
+  background-color: darkolivegreen;
+}
+
+.delete:hover {
+  background-color: red;
 }
