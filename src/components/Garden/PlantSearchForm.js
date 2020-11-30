@@ -5,20 +5,27 @@ export default class PlantSearchForm extends Component {
   static contextType = ApiContext;
 
   static defaultProps = {
-    plantNames: [],
     editPlants: () => {},
   };
 
   state = {
     error: null,
+    loading: false,
   };
 
   handleSubmit = (ev) => {
     ev.preventDefault();
-    this.setState({ error: null });
+    this.setState({ error: null, loading: true });
     const { plantName } = ev.target;
-    if (this.context.plantNames.includes(plantName.value)) {
-      this.setState({ error: `That plant is already in your garden!` });
+    if (
+      this.props.plantNames.includes(
+        `${plantName.value.charAt(0).toUpperCase()}${plantName.value.slice(1)}`
+      )
+    ) {
+      this.setState({
+        error: `That plant is already in your garden!`,
+        loading: false,
+      });
     } else {
       this.addPlant(plantName.value);
     }
@@ -84,6 +91,7 @@ export default class PlantSearchForm extends Component {
   };
 
   addPlant = (plantName) => {
+    this.setState({ error: null, loading: true });
     const url1 = `https://cors-anywhere.herokuapp.com/https://trefle.io/api/v1/plants?token=${process.env.REACT_APP_TREFLE_API_KEY}&filter[common_name]=${plantName}`;
     fetch(url1, {
       method: "GET",
@@ -176,6 +184,7 @@ export default class PlantSearchForm extends Component {
               error: `Something went wrong. Please try again.`,
             });
           });
+        this.setState({ error: null, loading: false });
       })
       .catch(() => {
         this.setState({
@@ -185,28 +194,36 @@ export default class PlantSearchForm extends Component {
   };
 
   render() {
-    const { error } = this.state;
+    const { error, loading } = this.state;
     return (
       <section className="PlantSearchForm">
         <form className="plantForm" onSubmit={this.handleSubmit}>
           <h3>Add a Plant to your Garden</h3>
-          <div role="alert" className="alert">
-            {error && <p className="error">{error}</p>}
-          </div>
-          <div className="plantNameInput">
-            <input
-              type="text"
-              id="plantName"
-              name="plantName"
-              placeholder="e.g. Rosemary"
-              required
-            />
-          </div>
-          <section className="buttons">
-            <button type="submit" className="primary">
-              Submit
-            </button>
-          </section>
+          {loading ? (
+            <section className="loaderMessage">
+              <div className="loader"></div>
+            </section>
+          ) : (
+            <>
+              <div role="alert" className="alert">
+                {error && <p className="error">{error}</p>}
+              </div>
+              <div className="plantNameInput">
+                <input
+                  type="text"
+                  id="plantName"
+                  name="plantName"
+                  placeholder="e.g. Rosemary"
+                  required
+                />
+              </div>
+              <section className="buttons">
+                <button type="submit" className="primary">
+                  Submit
+                </button>
+              </section>
+            </>
+          )}
         </form>
       </section>
     );

@@ -1,15 +1,7 @@
 import React, { Component } from "react";
-import ApiContext from "../../ApiContext";
 import "./Garden.css";
 
 export default class PlantCard extends Component {
-  static contextType = ApiContext;
-
-  static defaultProps = {
-    plants: [],
-    deletePlant: () => {},
-  };
-
   deletePlant = () => {
     this.props.onDeletePlant(this.props.plantInfo.name);
   };
@@ -39,6 +31,10 @@ export default class PlantCard extends Component {
         1
       )}`;
     }
+    let bloomPeriodDash = bloomPeriod;
+    if (bloomPeriod !== "N/A") {
+      bloomPeriodDash = `${bloomPeriod.slice(0, 1)}-${bloomPeriod.slice(1)}`;
+    }
 
     return (
       <section className="PlantCard">
@@ -61,13 +57,13 @@ export default class PlantCard extends Component {
           </h4>
           <h4>
             Soil pH Range:
-            {phRange.min !== "N/A" ? `${phRange.min}-${phRange.max}` : ""}
+            {phRange.min !== "N/A" ? ` ${phRange.min}-${phRange.max}` : ""}
           </h4>
           <h4>
             Average Height: {averageHeight}
             {averageHeight !== "N/A" ? "cm" : ""}
           </h4>
-          <h4>Bloom Period: {bloomPeriod}</h4>
+          <h4>Bloom Period: {bloomPeriodDash.toUpperCase()}</h4>
           <div className="buttons">
             <button className="delete" onClick={this.deletePlant}>
               X

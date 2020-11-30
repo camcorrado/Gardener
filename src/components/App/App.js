@@ -147,7 +147,7 @@ class App extends Component {
       });
   };
 
-  handleDeletePlant = async (updatedPlants) => {
+  handleDeletePlant = async (updatedPlants, updatedPlantNames) => {
     const updatedGarden = {
       plants: updatedPlants,
       hardiness_zone: this.state.hardinessZone,
@@ -164,7 +164,7 @@ class App extends Component {
         !res.ok ? res.json().then((e) => Promise.reject(e)) : true
       )
       .then(() => {
-        this.setState({ plants: updatedPlants });
+        this.setState({ plants: updatedPlants, plantNames: updatedPlantNames });
       })
       .catch((res) => {
         this.setState({ error: res.error });

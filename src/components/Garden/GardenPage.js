@@ -13,11 +13,13 @@ export default class GardenPage extends Component {
     user: {},
     hardinessZone: "",
     plants: [],
+    plantNames: [],
     setGarden: () => {},
   };
 
   state = {
     plants: [],
+    plantNames: [],
     loading: false,
     error: null,
   };
@@ -26,17 +28,24 @@ export default class GardenPage extends Component {
     if (this.context.plants.length === 0) {
       this.context.setUser(() => {
         this.context.setGarden(this.context.user.id, () => {
-          this.setState({ plants: this.context.plants });
+          this.setState({
+            plants: this.context.plants,
+            plantNames: this.context.plantNames,
+          });
         });
       });
     } else {
-      this.setState({ plants: this.context.plants });
+      this.setState({
+        plants: this.context.plants,
+        plantNames: this.context.plantNames,
+      });
     }
   }
 
   handleNewPlant = (newPlant) => {
     this.setState({
       plants: [...this.state.plants, newPlant],
+      plantNames: [...this.state.plantNames, newPlant.name],
     });
   };
 
@@ -49,12 +58,16 @@ export default class GardenPage extends Component {
       }
     });
 
-    this.setState({ plants: updatedPlants });
-    this.context.deletePlant(updatedPlants);
+    const updatedPlantNames = await this.state.plantNames.filter(
+      (prevPlantName) => prevPlantName !== plantName
+    );
+
+    this.setState({ plants: updatedPlants, plantNames: updatedPlantNames });
+    this.context.deletePlant(updatedPlants, updatedPlantNames);
   };
 
   render() {
-    const { error } = this.state;
+    const { error, plantNames } = this.state;
     return (
       <section className="GardenPage">
         <Nav />
@@ -66,7 +79,10 @@ export default class GardenPage extends Component {
           </section>
         ) : (
           <>
-            <PlantSearchForm onNewPlant={this.handleNewPlant} />
+            <PlantSearchForm
+              onNewPlant={this.handleNewPlant}
+              plantNames={plantNames}
+            />
             <div role="alert" className="alert">
               {error && <p className="error">{error}</p>}
             </div>
