@@ -1,41 +1,46 @@
 .HardinessZonePage {
-  margin-top: 50px;
+  margin-top: 100px;
   text-align: center;
 }
 
-.HardinessForm {
-  border: 1px solid black;
+.HardinessMeter {
+  border: 1px solid rgb(175, 175, 175);
   border-radius: 5px;
+  width: 100%;
+  background-color: white;
+  margin: 20px auto auto auto;
+  padding: 10px 20px;
   background-color: white;
   opacity: 0.8;
-  max-width: 500px;
-  margin: auto;
 }
 
-div {
-  display: flex;
-  margin: 5px 10px;
+.HardinessMeter > p {
+  margin-bottom: 10px;
 }
 
-label {
-  flex-basis: 33%;
-  text-align: right;
-  padding-right: 5px;
-}
-
-input {
-  flex-basis: 66%;
-}
-
-.HardinessMeter {
-  width: 100%;
-  position: fixed;
-  bottom: 0px;
-  left: 0px;
+.hardinessZoneInfo {
+  border-radius: 0px;
+  border: 0px;
   background-color: white;
+  font-size: 18px;
+  text-decoration: none;
+  color: blue;
+  cursor: pointer;
+  transition: all 0.5s;
+  margin: 0px;
+  padding: 0px;
+  font-family: "Abel", sans-serif;
+}
+
+.hardinessZoneInfo:hover {
+  text-decoration: underline;
+  background-color: white;
+  border-bottom-width: 0px;
+  color: black;
 }
 
 .hardinessZoneScale {
+  border-radius: 5px;
   background-image: linear-gradient(
     to right,
     violet,
@@ -53,7 +58,116 @@ input {
 
 .hardinessZoneIndicator {
   display: block;
-  max-width: 5%;
   position: relative;
-  max-height: 50px;
+  height: 100%;
+}
+
+[id="1a"] {
+  left: 0%;
+}
+
+[id="1b"] {
+  left: 3.8%;
+}
+
+[id="2a"] {
+  left: 7.6%;
+}
+
+[id="2b"] {
+  left: 11.4%;
+}
+
+[id="3a"] {
+  left: 15.2%;
+}
+
+[id="3b"] {
+  left: 19%;
+}
+
+[id="4a"] {
+  left: 22.8%;
+}
+
+[id="4b"] {
+  left: 26.6%;
+}
+
+[id="5a"] {
+  left: 30.4%;
+}
+
+[id="5b"] {
+  left: 34.2%;
+}
+
+[id="6a"] {
+  left: 38%;
+}
+
+[id="6b"] {
+  left: 41.8%;
+}
+
+[id="7a"] {
+  left: 45.6%;
+}
+
+[id="7b"] {
+  left: 49.4%;
+}
+
+[id="8a"] {
+  left: 53.2%;
+}
+
+[id="8b"] {
+  left: 57%;
+}
+
+[id="9a"] {
+  left: 60.8%;
+}
+
+[id="9b"] {
+  left: 64.6%;
+}
+
+[id="10a"] {
+  left: 68.4%;
+}
+
+[id="10b"] {
+  left: 72.2%;
+}
+
+[id="11a"] {
+  left: 76%;
+}
+
+[id="11b"] {
+  left: 79.8%;
+}
+
+[id="12a"] {
+  left: 83.6%;
+}
+
+[id="12b"] {
+  left: 87.4%;
+}
+
+[id="13a"] {
+  left: 91.2%;
+}
+
+[id="13b"] {
+  left: 95%;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }

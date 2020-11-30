@@ -1,18 +1,23 @@
 import React, { Component } from "react";
+import ApiContext from "../../ApiContext";
 import HardinessForm from "./HardinessForm";
+import HardinessMeter from "./HardinessMeter";
 import Nav from "../Nav/Nav";
 import "./Hardiness.css";
 
 export default class HardinessPage extends Component {
-  handleHardinessSuccess = () => {
-    this.props.history.push("/Garden");
+  static contextType = ApiContext;
+
+  static defaultProps = {
+    hardinessZone: "",
   };
+
   render() {
     return (
       <section className="HardinessZonePage">
         <Nav />
-        <h3>Discover your Hardiness Zone</h3>
         <HardinessForm onHardinessZoneSuccess={this.handleHardinessSuccess} />
+        {this.context.hardinessZone !== null ? <HardinessMeter /> : <></>}
       </section>
     );
   }

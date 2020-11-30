@@ -1,27 +1,35 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import ApiContext from "../../ApiContext";
 
 class HardinessMeter extends Component {
+  static contextType = ApiContext;
+
+  static defaultProps = {
+    hardinessZone: "",
+  };
+
   render() {
     return (
       <section className="HardinessMeter">
-        <h3>
+        <p>
           Your&nbsp;
-          <Link
-            href="https://planthardiness.ars.usda.gov/PHZMWeb/"
+          <a
+            href="https://plants.usda.gov/hardiness.html"
             alt="USDA Hardiness Zone Map"
             target="_blank"
             rel="noopener noreferrer"
+            className="hardinessZoneInfo"
           >
             Hardiness Zone
-          </Link>
+          </a>
           &nbsp;is:
-        </h3>
+        </p>
         <div className="hardinessZoneScale">
           <img
             src="https://image.flaticon.com/icons/png/512/31/31714.png"
             alt="leaf indicator"
             className="hardinessZoneIndicator"
+            id={this.context.hardinessZone}
           />
         </div>
       </section>

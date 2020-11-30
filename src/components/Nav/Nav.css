@@ -8,10 +8,11 @@ nav {
   background-color: white;
   display: flex;
   justify-content: space-evenly;
-  height: 50px;
+  height: 75px;
   border-bottom: 1px solid black;
 }
 
-a {
-  color: black;
+nav > a.button,
+nav > button {
+  margin: auto;
 }

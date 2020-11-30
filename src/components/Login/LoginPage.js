@@ -1,15 +1,33 @@
 import React, { Component } from "react";
 import Header from "../Header/Header";
 import LoginForm from "./LoginForm";
+import TokenService from "../../services/token-service";
+import ApiContext from "../../ApiContext";
 import "./Login.css";
 
 export default class LoginPage extends Component {
+  static contextType = ApiContext;
+
+  static defaultProps = {
+    setGarden: () => {},
+  };
+
   state = {
     error: null,
   };
 
+  componentDidMount() {
+    if (TokenService.getAuthToken()) {
+      this.props.history.push("/Garden");
+    }
+  }
+
   handleLoginSuccess = () => {
     this.props.history.push("/Garden");
+  };
+
+  handleNoHardinessZone = () => {
+    this.props.history.push("/HardinessZone");
   };
 
   render() {
@@ -19,8 +37,10 @@ export default class LoginPage extends Component {
         <header className="appHeader">
           <Header />
         </header>
-        <h3 id="loginTitle">Login</h3>
-        <LoginForm onLoginSuccess={this.handleLoginSuccess} />
+        <LoginForm
+          onLoginSuccess={this.handleLoginSuccess}
+          onNoHardinessZone={this.handleNoHardinessZone}
+        />
         <div role="alert" id="loginAlert" className="alert">
           {error && <p className="error">{error}</p>}
         </div>

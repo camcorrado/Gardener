@@ -2,34 +2,12 @@
   text-align: center;
 }
 
-.SignUpForm {
-  border: 1px solid black;
-  border-radius: 5px;
-  background-color: white;
-  opacity: 0.8;
-  max-width: 500px;
-  margin: auto;
+.nameInputs {
+  justify-content: space-between;
 }
 
-div {
-  display: flex;
-  margin: 5px 10px;
-}
-
-label {
-  flex-basis: 33%;
-  text-align: right;
-  padding-right: 5px;
-}
-
-input {
-  flex-basis: 66%;
-}
-
-#termsOfService {
-  flex-basis: 80%;
-}
-
-#terms {
-  flex-basis: 10%;
+#firstName,
+#lastName {
+  flex-basis: 45%;
+  max-width: 45%;
 }
