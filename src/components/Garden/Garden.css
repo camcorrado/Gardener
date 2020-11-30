@@ -54,12 +54,14 @@ ul {
   display: flex;
   border-radius: 5px;
   overflow: hidden;
+  margin-right: 10px;
 }
 
 .plantImg {
   border-radius: 5px;
-  max-height: 100%;
-  width: 250px;
+  height: auto;
+  width: 100%;
+  max-width: 250px;
   margin: auto;
 }
 
