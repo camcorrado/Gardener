@@ -1,6 +1,27 @@
 .Header {
+  display: flex;
   flex-direction: column;
   width: 100%;
   text-align: center;
   margin-top: 100px;
+}
+
+#appTitle {
+  height: 100%;
+  border: none;
+  background-color: transparent;
+  border-bottom: none;
+  text-decoration: none;
+  color: black;
+  cursor: pointer;
+  transition: none;
+  margin: auto;
+  text-align: center;
+  padding: 0px 0px;
+}
+
+#appTitle > h1 {
+  display: flex;
+  justify-content: center;
+  margin: auto;
 }
