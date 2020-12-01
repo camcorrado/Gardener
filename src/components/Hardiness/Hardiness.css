@@ -4,14 +4,13 @@
 }
 
 .HardinessMeter {
-  border: 1px solid rgb(175, 175, 175);
+  border: 1px solid rgba(175, 175, 175, 0.8);
   border-radius: 5px;
   width: 100%;
   background-color: white;
   margin: 20px auto auto auto;
   padding: 10px 20px;
   background-color: white;
-  opacity: 0.8;
 }
 
 .HardinessMeter > p {
