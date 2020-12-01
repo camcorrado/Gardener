@@ -19,7 +19,8 @@ Allows new users to create an account. Verifies that an email is not already tak
 
 ![Login Page](https://imgur.com/trhnL2H.png)
 
-![Hardiness Zone Page](https://imgur.com/FZeoPCG.png)
+![Hardiness Zone Page](https://imgur.com/FZeoPCG.pnggit staus
+)
 Users can input their zipcode to calculate their hardiness zone. This can be used as a reference for plants added to the user's garden.
 
 ![Garden Page](https://imgur.com/j6c9AEQ.png)
