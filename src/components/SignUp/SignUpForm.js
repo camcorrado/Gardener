@@ -99,7 +99,6 @@ export default class SignUpForm extends Component {
             minLength="2"
             placeholder="First Name"
             required
-            defaultValue="Cameron"
           />
           <input
             type="text"
@@ -109,7 +108,6 @@ export default class SignUpForm extends Component {
             minLength="2"
             placeholder="Last Name"
             required
-            defaultValue="Corrrado"
           />
         </div>
         <div className="emailInput">
@@ -120,7 +118,6 @@ export default class SignUpForm extends Component {
             maxLength="120"
             placeholder="Email"
             required
-            defaultValue="test@email.com"
           />
         </div>
         <div className="firstPasswordInput">
@@ -131,7 +128,6 @@ export default class SignUpForm extends Component {
             maxLength="20"
             placeholder="Password"
             required
-            defaultValue="Test123!"
           />
         </div>
         <div className="secondPasswordInput">
@@ -142,7 +138,6 @@ export default class SignUpForm extends Component {
             maxLength="20"
             placeholder="Confirm Password"
             required
-            defaultValue="Test123!"
           />
         </div>
         <section className="buttons">

@@ -71,7 +71,6 @@ export default class LoginForm extends Component {
             name="email"
             id="email"
             placeholder="Email"
-            defaultValue="test2000@email.com"
             required
           />
         </div>
@@ -81,7 +80,6 @@ export default class LoginForm extends Component {
             name="password"
             id="password"
             placeholder="Password"
-            defaultValue="Test123!"
             required
           />
         </div>
