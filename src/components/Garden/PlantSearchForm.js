@@ -92,7 +92,7 @@ export default class PlantSearchForm extends Component {
 
   addPlant = (plantName) => {
     this.setState({ error: null, loading: true });
-    const url1 = `https://cors-anywhere.herokuapp.com/https://trefle.io/api/v1/plants?token=${process.env.REACT_APP_TREFLE_API_KEY}&filter[common_name]=${plantName}`;
+    const url1 = `${process.env.REACT_APP_PROXY}https://trefle.io/api/v1/plants?token=${process.env.REACT_APP_TREFLE_API_KEY}&filter[common_name]=${plantName}`;
     fetch(url1, {
       method: "GET",
       "content-type": "application/json",
@@ -105,7 +105,7 @@ export default class PlantSearchForm extends Component {
       })
       .then((plantInfo1) => {
         let id = plantInfo1.data[0].id;
-        const url2 = `https://cors-anywhere.herokuapp.com/https://trefle.io/api/v1/plants/${id}?token=${process.env.REACT_APP_TREFLE_API_KEY}`;
+        const url2 = `${process.env.REACT_APP_PROXY}https://trefle.io/api/v1/plants/${id}?token=${process.env.REACT_APP_TREFLE_API_KEY}`;
         fetch(url2, {
           method: "GET",
           "content-type": "application/json",

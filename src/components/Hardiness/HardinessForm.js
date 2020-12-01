@@ -9,6 +9,7 @@ export default class HardinessForm extends Component {
   static defaultProps = {
     user: {},
     plants: [],
+    hardinessZone: null,
     setHardinessZone: () => {},
   };
 
@@ -28,8 +29,9 @@ export default class HardinessForm extends Component {
 
   handleSubmit = (ev) => {
     ev.preventDefault();
+    this.setState({ error: null });
     const { zipcode } = ev.target;
-    const url = `https://cors-anywhere.herokuapp.com/https://phzmapi.org/${zipcode.value}.json`;
+    const url = `${process.env.REACT_APP_PROXY}https://phzmapi.org/${zipcode.value}.json`;
     fetch(url)
       .then((response) => {
         if (response.ok) {
@@ -37,28 +39,34 @@ export default class HardinessForm extends Component {
         }
       })
       .then((data) => {
-        const updatedGarden = {
-          hardiness_zone: data.zone,
-          plants: this.context.plants || [],
-        };
-        fetch(`${config.API_ENDPOINT}/gardens/${this.context.user.id}`, {
-          method: "PATCH",
-          body: JSON.stringify(updatedGarden),
-          headers: {
-            "content-type": "application/json",
-            authorization: `bearer ${TokenService.getAuthToken()}`,
-          },
-        })
-          .then((res) =>
-            !res.ok ? res.json().then((e) => Promise.reject(e)) : true
-          )
-          .then(async () => {
-            await this.context.setHardinessZone(updatedGarden.hardiness_zone);
-            this.props.onHardinessZoneSuccess();
-          })
-          .catch((res) => {
-            this.setState({ error: res.error });
+        if (data.zone === this.context.hardinessZone) {
+          this.setState({
+            error: `This zipcode has the same hardiness zone as your previous entry.`,
           });
+        } else {
+          const updatedGarden = {
+            hardiness_zone: data.zone,
+            plants: this.context.plants || [],
+          };
+          fetch(`${config.API_ENDPOINT}/gardens/${this.context.user.id}`, {
+            method: "PATCH",
+            body: JSON.stringify(updatedGarden),
+            headers: {
+              "content-type": "application/json",
+              authorization: `bearer ${TokenService.getAuthToken()}`,
+            },
+          })
+            .then((res) =>
+              !res.ok ? res.json().then((e) => Promise.reject(e)) : true
+            )
+            .then(async () => {
+              await this.context.setHardinessZone(updatedGarden.hardiness_zone);
+              this.props.onHardinessZoneSuccess();
+            })
+            .catch((res) => {
+              this.setState({ error: res.error });
+            });
+        }
       })
       .catch(() => {
         this.setState({
