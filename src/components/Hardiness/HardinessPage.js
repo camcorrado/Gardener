@@ -14,7 +14,7 @@ export default class HardinessPage extends Component {
 
   render() {
     return (
-      <section className="HardinessZonePage">
+      <section className="hardinessZonePage">
         <Nav />
         <HardinessForm onHardinessZoneSuccess={this.handleHardinessSuccess} />
         {this.context.hardinessZone !== null ? <HardinessMeter /> : <></>}

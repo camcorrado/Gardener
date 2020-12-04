@@ -37,7 +37,7 @@ export default class PlantCard extends Component {
     }
 
     return (
-      <section className="PlantCard">
+      <section className="plantCard">
         <div className="imgContainer">
           <img src={image} className="plantImg" alt={name} />
         </div>

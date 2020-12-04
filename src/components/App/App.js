@@ -199,7 +199,7 @@ class App extends Component {
     };
     return (
       <ApiContext.Provider value={value}>
-        <main className="App">
+        <main className="app">
           <ErrorBoundary>
             <Switch>
               <Route exact path={"/"} component={Hero} />

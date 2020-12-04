@@ -10,7 +10,7 @@ class HardinessMeter extends Component {
 
   render() {
     return (
-      <section className="HardinessMeter">
+      <section className="hardinessMeter">
         <p>
           Your&nbsp;
           <a

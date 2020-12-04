@@ -17,7 +17,7 @@ export default class SignUpPage extends Component {
 
   render() {
     return (
-      <section className="SignUpPage">
+      <section className="signUpPage">
         <header className="appHeader">
           <Header />
         </header>

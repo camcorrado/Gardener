@@ -5,7 +5,7 @@ import "./Header.css";
 export default class Header extends Component {
   render() {
     return (
-      <section className="Header">
+      <section className="header">
         <h2>Welcome to</h2>
         <Link to="/" id="appTitle">
           <h1>Gardener</h1>

@@ -26,7 +26,7 @@ export default class Hero extends Component {
 
   render() {
     return (
-      <section className="Hero">
+      <section className="hero">
         <Header />
         {TokenService.hasAuthToken() ? (
           <section className="buttons">

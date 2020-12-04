@@ -60,7 +60,7 @@ export default class LoginForm extends Component {
     const { error } = this.state;
     const { buttonDict } = icons;
     return (
-      <form className="LoginForm" onSubmit={this.handleSubmit}>
+      <form className="loginForm" onSubmit={this.handleSubmit}>
         <h3>Login</h3>
         <div role="alert" className="alert">
           {error && <p className="error">{error}</p>}

@@ -33,7 +33,7 @@ export default class LoginPage extends Component {
   render() {
     const { error } = this.state;
     return (
-      <section className="LoginPage">
+      <section className="loginPage">
         <header className="appHeader">
           <Header />
         </header>

@@ -85,7 +85,7 @@ export default class SignUpForm extends Component {
     const { error } = this.state;
     const { buttonDict } = icons;
     return (
-      <form className="SignUpForm" onSubmit={this.handleSubmit}>
+      <form className="signUpForm" onSubmit={this.handleSubmit}>
         <h3>Sign Up</h3>
         <div role="alert" className="alert">
           {error && <p className="error">{error}</p>}

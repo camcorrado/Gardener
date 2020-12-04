@@ -1,9 +1,9 @@
-.HardinessZonePage {
+.hardinessZonePage {
   margin-top: 100px;
   text-align: center;
 }
 
-.HardinessMeter {
+.hardinessMeter {
   border: 1px solid rgba(175, 175, 175, 0.8);
   border-radius: 5px;
   width: 100%;
@@ -13,7 +13,7 @@
   background-color: white;
 }
 
-.HardinessMeter > p {
+.hardinessMeter > p {
   margin-bottom: 10px;
 }
 

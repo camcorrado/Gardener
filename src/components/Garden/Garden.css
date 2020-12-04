@@ -1,9 +1,9 @@
-.GardenPage {
+.gardenPage {
   margin-top: 100px;
   text-align: center;
 }
 
-.Garden {
+.garden {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -16,12 +16,12 @@
   padding: 10px 20px;
 }
 
-.Garden > a {
+.garden > a {
   width: auto;
   padding-top: 7px;
 }
 
-.Garden > h3 {
+.garden > h3 {
   padding-bottom: 10px;
   margin: 0px auto 10px auto;
   border-bottom: 1px solid rgba(0, 0, 0, 0.3);
@@ -37,7 +37,7 @@ ul {
   width: 100%;
 }
 
-.PlantCard {
+.plantCard {
   height: 350px;
   display: flex;
   justify-content: space-between;

@@ -69,10 +69,10 @@ export default class GardenPage extends Component {
   render() {
     const { error, plantNames } = this.state;
     return (
-      <section className="GardenPage">
+      <section className="gardenPage">
         <Nav />
         {this.context.hardinessZone === null ? (
-          <section className="Garden">
+          <section className="garden">
             <Link to="/HardinessZone" className="error">
               Please set your hardiness zone.
             </Link>
@@ -86,7 +86,7 @@ export default class GardenPage extends Component {
             <div role="alert" className="alert">
               {error && <p className="error">{error}</p>}
             </div>
-            <section className="Garden">
+            <section className="garden">
               <h3>
                 Your Garden
                 {this.context.plants && this.context.plants.length === 0

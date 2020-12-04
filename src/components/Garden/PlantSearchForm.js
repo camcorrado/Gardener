@@ -196,7 +196,7 @@ export default class PlantSearchForm extends Component {
   render() {
     const { error, loading } = this.state;
     return (
-      <section className="PlantSearchForm">
+      <section className="plantSearchForm">
         <form className="plantForm" onSubmit={this.handleSubmit}>
           <h3>Add a Plant to your Garden</h3>
           {loading ? (

@@ -78,7 +78,7 @@ export default class HardinessForm extends Component {
   render() {
     const { error } = this.state;
     return (
-      <form className="HardinessForm" onSubmit={this.handleSubmit}>
+      <form className="hardinessForm" onSubmit={this.handleSubmit}>
         <h3>Discover your Hardiness Zone</h3>
         <div role="alert" className="alert">
           {error && <p className="error">{error}</p>}
